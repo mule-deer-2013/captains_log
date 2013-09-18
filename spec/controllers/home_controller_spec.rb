@@ -13,7 +13,7 @@ describe HomeController do
 
     it "should display a list of all questions" do
       get :index
-      expect(response.body).to include(Question.first.title)
+      expect(assigns(:questions)).to eq([question])
     end
 
 
