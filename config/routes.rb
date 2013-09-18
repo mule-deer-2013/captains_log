@@ -1,4 +1,11 @@
 CaptainsLog::Application.routes.draw do
+
+  get '/sign_up', to: 'users#sign_up'
+
+  get '/users', to: 'users#index'
+  #resources :users
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
