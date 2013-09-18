@@ -5,6 +5,9 @@ CaptainsLog::Application.routes.draw do
   get '/sign_up', to: 'users#sign_up'
 
   get '/users', to: 'users#index'
+
+  post '/users', to: 'users#create'
+
   #resources :users
 
 

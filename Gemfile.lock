@@ -126,11 +126,18 @@ GEM
       nokogiri (~> 1.3)
 
 PLATFORMS
+  bcrypt-unknown
+  jquery-unknown
+  rspec-unknown
   ruby
+  sass-unknown
+  shoulda-unknown
+  unknown
 
+DEPENDENCIES
+  bcrypt-ruby
   capybara
   database_cleaner
-  bcrypt-ruby
   factory_girl_rails
   faker
   jquery-rails
