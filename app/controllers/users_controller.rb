@@ -14,4 +14,10 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def show
+    @user = User.find(params[:id]) #id that comes from the url
+    @questions = @user.questions
+    @answers = @user.answers
+  end
 end
