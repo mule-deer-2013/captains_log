@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  # include SessionHelper
+  include SessionsHelper
 
-  # def handle_unverified_request
-  #   sign_out 
-  # end
-
-
+  def handle_unverified_request
+  	sign_out
+  	super
+  end
 
 end
 

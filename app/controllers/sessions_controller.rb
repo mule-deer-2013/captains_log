@@ -1,4 +1,6 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
+  #include SessionsHelper
+
   def new
   end
 
@@ -15,6 +17,8 @@ class SessionsController < ActionController::Base
   end
 
   def destroy
+    sign_out
+    redirect_to root_url
   end
 end
 
