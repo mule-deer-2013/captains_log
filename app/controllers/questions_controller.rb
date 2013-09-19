@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
       render :new
     else
       puts "You're out"
+      flash[:notices] = "Must login to create question"
       redirect_to('/')
     end
   end
