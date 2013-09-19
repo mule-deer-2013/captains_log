@@ -3,9 +3,9 @@
 <%= form_for @question do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+	<%= @question.errors[:title].join(',') %>
   <%= f.label :description %>
   <%= f.text_field :description %>
-
+	<%= @question.errors[:description].join(',') %>
   <%= f.submit "Create Question" %>
 <% end %>
