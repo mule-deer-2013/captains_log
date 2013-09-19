@@ -1,0 +1,13 @@
+<h1>Create new question</h1>
+
+<%= form_for @question do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= @title.errors[:title].join(',') %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= @question.errors[:description].join(',') %><br>
+
+  <%= f.submit "Create Question" %>
+<% end %>

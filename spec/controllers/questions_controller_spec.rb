@@ -30,20 +30,37 @@ describe QuestionsController do
 
   describe "new" do
 
-    it "exists" do
-      get :new
-      expect(response.status).to eq(200)
+    it "should send user to new question form if logged in" do
+      pending
+      # post login_path, :login => user.login, :password => 'password'
+      # get :new
+      # expect(response.status).to eq(200)
     end
 
-    it "should check to see if a user is logged in"
-
+    it "should redirect to root index if user not logged in" do
+      pending
+      # get :new
+      # expect(response.status).to eq(302)
+    end
   end
 
   describe "create" do
+    # before(:each) do
+    #   post login_path, :login => user.login, :password => 'password'
+    #   request_params = {question: {title: "Create Title", description: "Create description."} }
+    # end
 
-    it "exists"
+    it "exists" do
+      pending
+      # post :create, request_params
+      # expect(response.status).to eq(302)
+    end
 
-    it "creates a new question"
+    it "creates a new question" do
+      pending
+      # post :create, request_params
+      # expect(assigns(:question)).to eq(Question.find_by_title("Create Title"))
+    end
 
   end
 

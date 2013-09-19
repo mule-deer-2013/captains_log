@@ -1,4 +1,7 @@
 <h1>Hi there</h1>
+<br>
+<%= link_to "Create new question", "/questions/new" %>
+
 <% @questions.each do |question| %>
   <%= link_to question.title, "/questions/#{question.id}", class: "question_link" %>
 <% end %>

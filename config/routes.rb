@@ -13,7 +13,10 @@ CaptainsLog::Application.routes.draw do
   # post '/sessions', to: 'session#create', as: "sessions"
   # delete '/sessions/:id', to: 'sessions#destroy', as: "sessions"
 
+  get '/questions/new', to: 'questions#new'
   get '/questions/:id', to: 'questions#show'
+
+  post '/questions', to: 'questions#create'
 
   #resources :users
 
