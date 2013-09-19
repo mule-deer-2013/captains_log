@@ -1,4 +1,4 @@
-require 'bcrypt'
+
 
 class User < ActiveRecord::Base
 
@@ -6,17 +6,10 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
 
-  validates :name, presence: true
+  has_secure_password
 
-  include BCrypt
-
-  def password
-      @password ||= Password.new(password_hash)
-  end
-
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_hash = @password
-  end
+  validates :name, :email, :password, presence: true
+  validates :email, format: /\w+@\w+\.\w+/
+  validates :email, uniqueness: true
 
 end
