@@ -1,0 +1,20 @@
+
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= @user.errors[:name].join(',') %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= @user.errors[:email].join(',') %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= @user.errors[:password].join(',') %><br>
+
+  <%= f.submit "Sign me up!" %>
+<% end %>

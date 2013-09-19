@@ -17,4 +17,18 @@ describe User do
   end
 
 
+  context "#save" do 
+    let(:user) {User.new(name: "Bonzo", email: "me@example.com")}
+
+    it "must have a name" do
+      user.name = nil
+      expect { user.save! }.to raise_error
+    end
+
+
+
+
+    
+  end
+
 end

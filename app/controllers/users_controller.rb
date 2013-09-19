@@ -1,5 +1,5 @@
 class UsersController < ActionController::Base
-  def sign_up
+  def new
     @user = User.new
   end
 
@@ -8,7 +8,7 @@ class UsersController < ActionController::Base
     if @user.save
       redirect_to "/"
     else
-      render "sign_up"
+      render "new"
     end
   end
 end
