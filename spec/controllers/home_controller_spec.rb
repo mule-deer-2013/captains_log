@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 describe HomeController do
-  describe "homepage" do
+  describe "index" do
     let!(:user) { User.create(name: "Nick", email: "nick@nick.com") }
     let!(:question) { Question.create(title: "Dogs", description: "Dogs are the best", user: user) }
 
@@ -11,9 +11,9 @@ describe HomeController do
       expect(response.status).to eq(200)
     end
 
-    it "should display a list of all questions" do
+    it "should assign all questions to @questions" do
       get :index
-      expect(response.body).to include(Question.first.title)
+      expect(assigns(:questions)).to eq([question])
     end
 
 

@@ -1,1 +1,4 @@
 <h1>Hi there</h1>
+<% @questions.each do |question| %>
+  <%= link_to question.title, "/questions/#{question.id}", class: "question_link" %>
+<% end %>
