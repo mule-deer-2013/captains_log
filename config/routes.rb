@@ -18,6 +18,8 @@ CaptainsLog::Application.routes.draw do
 
   post '/questions', to: 'questions#create'
 
+  post '/questions/:id/answers', to: 'answers#create'
+
   #resources :users
 
 end

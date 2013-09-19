@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QuestionsController do
-  let!(:user) { User.create(name: "Nick", email: "nick@nick.com") }
+  let!(:user) { User.create(name: "Nick", email: "nick@nick.com", password: "nick") }
     let!(:test_question) { Question.create(title: "Dogs", description: "Dogs are the best", user: user) }
     let!(:test_answer1) { Answer.create(description: "I hate your question.", user: user, question: test_question) }
     let!(:test_answer2) { Answer.create(description: "I hate your question too.", user: user, question: test_question) }
@@ -31,16 +31,14 @@ describe QuestionsController do
   describe "new" do
 
     it "should send user to new question form if logged in" do
-      pending
-      # post login_path, :login => user.login, :password => 'password'
-      # get :new
-      # expect(response.status).to eq(200)
+      # need to stub user here
+      get :new
+      expect(response.status).to eq(200)
     end
 
     it "should redirect to root index if user not logged in" do
-      pending
-      # get :new
-      # expect(response.status).to eq(302)
+      get :new
+      expect(response.status).to eq(302)
     end
   end
 

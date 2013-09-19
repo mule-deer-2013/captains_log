@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe HomeController do
   describe "index" do
-    let!(:user) { User.create(name: "Nick", email: "nick@nick.com") }
+    let!(:user) { User.create(name: "Nick", email: "nick@nick.com", password: "nick") }
     let!(:question) { Question.create(title: "Dogs", description: "Dogs are the best", user: user) }
 
     it "exists" do

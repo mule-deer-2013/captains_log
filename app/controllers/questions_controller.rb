@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   def new
     if signed_in?
       puts "You're in"
+      @question = Question.new
       render :new
     else
       puts "You're out"
@@ -15,10 +16,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @question = Question.new(params[:question])
-    @question.user = @user
-    @question.save
+    params[:question][:user] = current_user
+    @question = Question.create(params[:question])
     redirect_to("/questions/#{@question.id}")
   end
 end

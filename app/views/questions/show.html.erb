@@ -1,7 +1,17 @@
 <h3><%= @question.title %></h3>
 
-<div id="question_description"><%= @question.description %></div>
+<div id="question_description">Q:<%= @question.description %></div>
 
 <% @answers.each do |answer| %>
-  <div class="answer_description"><%= answer.description %></div>
+  <div class="answer_description">A:<%= answer.description %></div>
+<% end %>
+
+<h1>Answer this question</h1>
+
+<%= form_for(:answer, url: "/questions/#{@question.id}/answers") do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Answer!" %>
 <% end %>
