@@ -1,0 +1,23 @@
+
+
+<!-- Welcome User name -->
+Welcome! <%=@user.name.capitalize %>
+<br><br>
+My questions are the followings:
+<!-- List of questions -->
+<% @questions.each do |q| %>
+<br>
+<%= q.title %>
+
+<%end%>
+
+
+<!-- answers of users -->
+<br><br>
+My answers are: 
+
+<% @answers.each do |a| %>
+<br>
+<%= a.description %>
+
+<%end%>
