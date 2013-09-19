@@ -15,4 +15,5 @@
 - user will be able to comment on questions and anwers (responses) if logged in with polymorphic associations in a new migration
 - user will be pleased with CSS (bootstrap or foundation)
 - user will be able to see votes instantly without re-rendering page
+- user will see an error if they try to create a question or answer without being logged in
 

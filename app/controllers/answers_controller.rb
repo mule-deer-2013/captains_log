@@ -3,9 +3,9 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:id])
     if signed_in?
       @answer = Answer.new(params[:answer])
-      @answer.user = current_user
-      @answer.question = @question
-      @answer.save
+      current_user.answers << @answer
+      @question.answers << @answer
+      flash[:error] = "Answer needs content." unless @answer.save
     end
     redirect_to("/questions/#{@question.id}")
   end
