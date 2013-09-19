@@ -8,7 +8,7 @@ CaptainsLog::Application.routes.draw do
 
   post '/users', to: 'users#create'
 
-  get '/questions', to: 'questions#show'
+  get '/questions/:id', to: 'questions#show'
 
   #resources :users
 
