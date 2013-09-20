@@ -31,9 +31,6 @@ describe QuestionsController do
   describe "new" do
 
     it "should send user to new question form if logged in" do
-      # need to stub user here
-      # user = double("user")
-      # user.stub(:)
       get :new
       expect(response.status).to eq(200)
     end
