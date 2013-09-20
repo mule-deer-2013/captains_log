@@ -4,15 +4,11 @@
          <!-- Need to replace # with our routes -->
       <%= link_to "Welcome to Captains Log (need logo here)", root_path, id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
-           
+        <ul class="nav pull-right">  
            <li><%= link_to "Home",  root_path %></li> 
-           <% if signed_in? %>
-
+            <% if signed_in? %>
             <li><%= link_to "Sign out", signout_path, method: "delete" %>
-
             <% else %>
-
           <li><%= link_to "Sign in", signin_path %></li>
           <%end%>
         </ul>
@@ -20,3 +16,5 @@
     </div>
   </div>
 </header>
+
+

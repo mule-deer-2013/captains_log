@@ -3,12 +3,13 @@
 <!-- Welcome User name -->
 Welcome! <%=@user.name.capitalize %>
 <br><br>
+
 My questions are the followings:
 <!-- List of questions -->
 <% @questions.each do |q| %>
-<br>
-<%= q.title %>
-
+<tr> 
+  <td><%= q.title %></td>
+</tr>
 <%end%>
 
 
