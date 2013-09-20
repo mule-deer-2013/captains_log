@@ -9,6 +9,9 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <% if flash %>
+    <%= render 'layouts/messages' %>
+  <% end %>
 
 <div class ="container">
 
