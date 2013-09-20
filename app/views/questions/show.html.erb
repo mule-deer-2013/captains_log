@@ -1,9 +1,17 @@
 <h3><%= @question.title %></h3>
+<% if flash[:notices] %>
+<p><%= flash[:notices] %></p>
+<% end %>
 
 <div id="question_description">Q:<%= @question.description %></div>
 
-<% @answers.each do |answer| %>
-  <div class="answer_description">A:<%= answer.description %></div>
+<% @answers.each_with_index do |answer, index| %>
+  <div class="answer_description">Votes: <%= @answer_vote_count[index] %> A:<%= answer.description %>
+  <%= form_for @vote, url: answer_votes_path(answer) do |f| %>
+    <%= f.button 'Upvote', name: "vote[up_down]", value: "1" %>
+    <%= f.button 'Downvote', name: "vote[up_down]", value: "0" %>
+  <% end %>
+  </div>
 <% end %>
 
 <h1>Answer this question</h1>
