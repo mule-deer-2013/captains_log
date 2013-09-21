@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
+    p @question.votes
+    @question_vote_total = @question.votes.where(up: true).count - @question.votes.where(down: true).count
+    p @question_vote_total
     @answers = @question.answers
-    @vote = Vote.new
     @answer_vote_count = []
     @answers.each do |answer|
       vote_score = 0

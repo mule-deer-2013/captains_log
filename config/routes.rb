@@ -12,6 +12,12 @@ CaptainsLog::Application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  resources :questions, only: [] do
+    resources :answers, only: [:create]
+  end
+
+  # "/questions/2/answers"
+
   resources :questions, only: [:new, :show, :create]
 
   match '/signup', to: 'users#new'
