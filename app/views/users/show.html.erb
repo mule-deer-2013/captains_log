@@ -1,14 +1,16 @@
 
-
+<div class = "center hero-unit">
 <!-- Welcome User name -->
-Welcome! <%=@user.name.capitalize %>
+<h1>Welcome <%=@user.name.capitalize %>!</h1>
 <br><br>
-My questions are the followings:
+
+<h2>My questions are the followings:</h2>
 <!-- List of questions -->
 <% @questions.each do |q| %>
+<tr> 
+  <td><%= q.title %></td>
+</tr>
 <br>
-<%= q.title %>
-
 <%end%>
 
 
@@ -21,3 +23,4 @@ My answers are:
 <%= a.description %>
 
 <%end%>
+</div>

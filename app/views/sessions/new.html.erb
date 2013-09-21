@@ -4,13 +4,20 @@
 
   <%= form_for(:session, url: sessions_path) do |f| %>
 
-    <%= f.label :email %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class = "control">
     <%= f.text_field :email %>
+    </div>
+  </div>
 
-    <%= f.label :password %>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
     <%= f.password_field :password %>
-
-    <%= f.submit "Sign in" %>
+  <div class = "control">
+    <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+    </div>
+  </div>
 
   <%end%>
 

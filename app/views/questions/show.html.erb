@@ -8,13 +8,12 @@
 <% @answers.each_with_index do |answer, index| %>
   <div class="answer_description">Votes: <%= @answer_vote_count[index] %> A:<%= answer.description %>
   <%= form_for @vote, url: answer_votes_path(answer) do |f| %>
-    <%= f.button 'Upvote', name: "vote[up]", value: "true" %>
-    <%= f.button 'Downvote', name: "vote[down]", value: "true" %>
+    <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
+    <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
   <% end %>
   </div>
 <% end %>
 
-<h1>Answer this question</h1>
 
 <%= form_for(:answer, url: "/questions/#{@question.id}/answers") do |f| %>
 
@@ -22,5 +21,5 @@
   <%= f.text_field :description %>
   <%= flash[:error] %>
 
-  <%= f.submit "Answer!" %>
+  <%= f.submit "Answer!", :class => 'btn btn-primary' %>
 <% end %>
