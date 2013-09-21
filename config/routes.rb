@@ -8,6 +8,12 @@ CaptainsLog::Application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  resources :questions, only: [] do
+    resources :votes, only: [:create]
+  end
+
+  resources :questions, only: [:new, :show, :create]
+
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
@@ -16,12 +22,9 @@ CaptainsLog::Application.routes.draw do
   # post '/sessions', to: 'session#create', as: "sessions"
   # delete '/sessions/:id', to: 'sessions#destroy', as: "sessions"
 
-  get '/questions/new', to: 'questions#new'
-  get '/questions/:id', to: 'questions#show'
-
-  post '/questions', to: 'questions#create'
-
-  post '/questions/:id/answers', to: 'answers#create'
+  # get '/questions/new', to: 'questions#new'
+  # get '/questions/:id', to: 'questions#show'
+  # post '/questions', to: 'questions#create'
 
   #resources :users
 

@@ -41,12 +41,15 @@ ActiveRecord::Schema.define(:version => 20130919191410) do
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "votes", :force => true do |t|
-    t.boolean  "up_down"
+    t.boolean  "up",           :default => false
+    t.boolean  "down",         :default => false
     t.integer  "votable_id"
     t.string   "votable_type"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
+
+  add_index "votes", ["votable_type", "votable_id"], :name => "index_votes_on_votable_type_and_votable_id"
 
 end

@@ -8,8 +8,8 @@
 <% @answers.each_with_index do |answer, index| %>
   <div class="answer_description">Votes: <%= @answer_vote_count[index] %> A:<%= answer.description %>
   <%= form_for @vote, url: answer_votes_path(answer) do |f| %>
-    <%= f.button 'Upvote', name: "vote[up_down]", value: "1" %>
-    <%= f.button 'Downvote', name: "vote[up_down]", value: "0" %>
+    <%= f.button 'Upvote', name: "vote[up]", value: "true" %>
+    <%= f.button 'Downvote', name: "vote[down]", value: "true" %>
   <% end %>
   </div>
 <% end %>

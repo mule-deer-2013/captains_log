@@ -7,9 +7,9 @@ class QuestionsController < ApplicationController
     @answers.each do |answer|
       vote_score = 0
       answer.votes.each do |vote|
-        if vote.up_down
+        if vote.up && !vote.down
           vote_score += 1
-        else
+        elsif !vote.up && vote.down
           vote_score -= 1
         end
       end
