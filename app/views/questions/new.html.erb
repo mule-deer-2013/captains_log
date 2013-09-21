@@ -1,3 +1,4 @@
+<div class="control-group">
 <h1>Create new question</h1>
 
 <%= form_for @question do |f| %>
@@ -7,5 +8,6 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 	<%= @question.errors[:description].join(',') %>
-  <%= f.submit "Create Question" %>
+  <%= f.submit "Create Question", :class => 'btn btn-success' %>
 <% end %>
+</div>
