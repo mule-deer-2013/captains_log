@@ -1,4 +1,8 @@
+<div class = "center hero-unit">
+<h2>Here is a list of questions from all our users: </h2>
  <% @questions.each do |question| %>
      <%= link_to(question.title, question, class: 'btn') %>
      <br>
+     <br>
    <% end %>
+   </div>
