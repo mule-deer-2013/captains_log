@@ -6,29 +6,29 @@
     </div>
     <%= form_for @user, :html => { :class => 'form-horizonal'} do |f| %>
 
-      <div class= "control-group">
+      <div class= "center control-group">
         <div class="controls">
           <%= f.text_field :name, :placeholder => "Name", :class => 'text_field' %>
           <%= @user.errors[:name].join(', ') %><br>
         </div>
       </div>
 
-      <div class="control-group">
+      <div class="center control-group">
         <div class="controls">
           <%= f.text_field :email, :placeholder => "Email",:class => 'text_field' %>
           <%= @user.errors[:email].join(', ') %><br>
         </div>
       </div>
 
-      <div class="control-group">
+      <div class="center control-group">
         <div class="controls">
           <%= f.password_field :password,:placeholder => "Password",:class => 'text_field' %>
           <%= @user.errors[:password].join(', ') %><br>
         </div>
       </div>
 
-      <div class="control-group">
-        <%= f.submit "Sign me up!", :class => 'btn btn-success' %>
+      <div class="center control-group">
+        <%= f.submit "Sign me up!", :class => 'btn btn-danger' %>
       </div>
     <% end %>
   </div>
