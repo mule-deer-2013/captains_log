@@ -7,7 +7,7 @@ describe QuestionsController do
   let!(:test_answer2) { Answer.create(description: "I hate your question too.", user: user, question: test_question) }
 
   describe "show" do
-    let(:request_params) = {id: test_question.id}
+    let(:request_params){{id:test_question.id}}
 
     it "returns status 200" do
       get :show, request_params
