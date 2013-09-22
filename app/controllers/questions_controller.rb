@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
     else
       puts "You're out"
       flash[:notices] = "Must login to create question"
-      redirect_to('/')
+      redirect_to root_path
     end
   end
 
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
     params[:question][:user] = current_user
     @question = Question.new(params[:question])
     if @question.save
-      redirect_to("/questions/#{@question.id}")
+      redirect_to @question
     else
       render 'new'
     end

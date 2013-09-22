@@ -4,7 +4,5 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :votes, as: :votable
 
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :user, presence: true
+  validates :title, :description, :user, presence: true
 end

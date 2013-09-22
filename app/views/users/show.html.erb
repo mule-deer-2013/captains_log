@@ -1,26 +1,25 @@
 
 <div class = "center hero-unit">
 <!-- Welcome User name -->
-<h1>Welcome <%=@user.name.capitalize %>!</h1>
-<br><br>
+	<h1>Welcome <%=@user.name.capitalize %>!</h1>
+	<br><br>
 
-<h2>My questions are the followings:</h2>
+	<h2>My questions are the followings:</h2>
 <!-- List of questions -->
-<% @questions.each do |q| %>
-<tr> 
-  <td><%= q.title %></td>
-</tr>
-<br>
-<%end%>
+	<% @questions.each do |q| %>
+		<tr> 
+  		<td><%= q.title %></td>
+		</tr>
+		<br>
+	<%end%>
 
 
 <!-- answers of users -->
-<br><br>
-My answers are: 
+	<br><br>
+	My answers are: 
 
-<% @answers.each do |a| %>
-<br>
-<%= a.description %>
-
-<%end%>
+	<% @answers.each do |a| %>
+		<br>
+		<%= a.description %>
+	<%end%>
 </div>
