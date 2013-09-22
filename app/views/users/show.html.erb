@@ -10,7 +10,7 @@
 <!-- List of questions -->
 	<% @questions.each do |q| %>
 		<tr> 
-  		<td><%= q.title %></td>
+  		<td><%= link_to(q.title, q) %></td>
 		</tr>
 		<br>
 	<%end%>
@@ -22,6 +22,6 @@
 
 	<% @answers.each do |a| %>
 		<br>
-		<%= a.description %>
+		<%=link_to a.description, a.question %>
 	<%end%>
 </div>
