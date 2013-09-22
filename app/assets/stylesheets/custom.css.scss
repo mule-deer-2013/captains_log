@@ -24,17 +24,19 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
+.nav#nav{
+  height: 60px;
+  float: none;
+  margin: 0 auto;
 }
 
-.hero-unit {
-  margin: 100px;
+.main-content{
+  height: 600px;
 }
 
+.modal-header{
+  border: none;
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
