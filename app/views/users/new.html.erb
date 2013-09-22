@@ -1,9 +1,12 @@
+<div class="container">
 <div class = "center hero-unit">
-
+<div class='modal' id='myModal'>
+  <div class='modal-body'>
+    <div class='modal-header'>
 
 <% provide(:title, 'Sign up') %>
 <h1>Create an account</h1>
-
+</div>
 <%= form_for @user, :html => { :class => 'form-horizonal'} do |f| %>
 
   <div class= "control-group">
@@ -33,5 +36,6 @@
 <% end %>
 </div>
 
-
-
+</div>
+</div>
+</div>

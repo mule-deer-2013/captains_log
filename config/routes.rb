@@ -1,6 +1,6 @@
 CaptainsLog::Application.routes.draw do
 
-  root to: "home#index"
+  root to: "users#new"
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
