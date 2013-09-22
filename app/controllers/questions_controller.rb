@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  include 
+
   def index
     @questions= Question.all
   end
