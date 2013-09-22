@@ -24,6 +24,12 @@ textarea {
   resize: vertical;
 }
 
+.modal{
+  display: none;
+  &.show{
+  display: block;
+  }
+}
 .nav#nav{
   height: 60px;
   float: none;

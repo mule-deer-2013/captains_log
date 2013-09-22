@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to @user
     else
+      flash[:notice] = @user.errors.full_messages.join(". ")
       redirect_to root_path
     end
   end
