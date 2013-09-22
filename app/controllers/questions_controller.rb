@@ -6,19 +6,11 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @question_vote_total = @question.votes.where(up: true).count - @question.votes.where(down: true).count
+    @question_vote_total = vote_tally(@question)
     @answers = @question.answers
     @answer_vote_count = []
     @answers.each do |answer|
-      vote_score = 0
-      answer.votes.each do |vote|
-        if vote.up && !vote.down
-          vote_score += 1
-        elsif !vote.up && vote.down
-          vote_score -= 1
-        end
-      end
-      @answer_vote_count << vote_score
+      @answer_vote_count << vote_tally(answer)
     end
   end
 

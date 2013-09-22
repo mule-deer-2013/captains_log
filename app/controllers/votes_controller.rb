@@ -14,16 +14,18 @@ class VotesController < ApplicationController
   end
 
   def create_vote
-    vote = Vote.where(user_id: current_user.id, votable_type: @votable.class, votable_id: @votable.id)
-    button = params[:vote]
-    if vote.empty?
-      vote = @votable.votes.new(user: current_user)
-    else
-      vote = vote.first
-    end
-    vote.change_vote(button)
-    unless vote.save
-      flash[:notices] = vote.errors.full_messages.join(', ')
+    if signed_in?
+      vote = Vote.where(user_id: current_user.id, votable_type: @votable.class, votable_id: @votable.id)
+      button = params[:vote]
+      if vote.empty?
+        vote = @votable.votes.new(user: current_user)
+      else
+        vote = vote.first
+      end
+      vote.change_vote(button)
+      unless vote.save
+        flash[:notices] = vote.errors.full_messages.join(', ')
+      end
     end
     redirect_to question_path(votable)
   end
