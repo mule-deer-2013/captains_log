@@ -1,20 +1,37 @@
  <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-         <!-- Need to replace # with our routes -->
-      <%= link_to "Welcome to Captains Log (need logo here)", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">  
-           <li><%= link_to "Home",  root_path %></li> 
+
+      <%= link_to "Captains Log", root_path, id: "logo", :class => 'navbar-brand' %>
+        <% provide(:title, "Sign in") %>
+        <%= flash[:error] %>
+     <nav>
+
+        <%= form_tag sessions_path, :class => 'navbar-form pull-right' do %>
+
             <% if signed_in? %>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %>
+
+          <%= link_to "Sign out", signout_path, method: "delete", :class => "btn btn-danger", :id => 'signout' %>
+
+
             <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+
+          
+              <%= text_field_tag(:email, nil, placeholder: "Email", class: 'form-control') %>
+         
+
+         
+              <%= text_field_tag(:password, nil, placeholder: "Password", type: 'password', class: 'form-control') %>
+     
+
+          <%= submit_tag("Sign In", :class => 'btn btn-success', :id => 'sign_in') %>
+
+
           <%end%>
-        </ul>
+        <% end %>
+       
       </nav>
     </div>
   </div>
 </header>
-
 
