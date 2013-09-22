@@ -7,6 +7,6 @@ class AnswersController < ApplicationController
       @question.answers << @answer
       flash[:error] = "Answer needs content." unless @answer.save
     end
-    redirect_to("/questions/#{@question.id}")
+    redirect_to @question
   end
 end

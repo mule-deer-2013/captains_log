@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      render 'new'
+      render :new
     end
   end
 end

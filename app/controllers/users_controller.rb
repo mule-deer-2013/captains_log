@@ -11,12 +11,12 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to @user
     else
-      render "new"
+      render :new
     end
   end
 
   def show
-    @user = User.find(params[:id]) #id that comes from the url
+    @user = User.find(params[:id])
     @questions = @user.questions
     @answers = @user.answers
   end
