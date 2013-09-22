@@ -4,29 +4,34 @@
   <p><%= flash[:notices] %></p>
   <% end %>
 
-  <div id="question_description">Votes: <%= @question_vote_total %> Q: <%= @question.description %>
-    <%= form_for :vote, url: question_votes_path(@question) do |f| %>
-      <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
-      <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
+  <div id="question_description"><span class="votes">Votes: <%= @question_vote_total %></span> Q: <%= @question.description %>
+    <% if signed_in? %>
+      <%= form_for :vote, url: question_votes_path(@question) do |f| %>
+        <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
+        <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
+      <% end %>
     <% end %>
   </div>
 
   <% @answers.each_with_index do |answer, index| %>
-    <div class="answer_description">Votes: <%= @answer_vote_count[index] %> A: <%= answer.description %>
-    <%= form_for :vote, url: answer_votes_path(answer) do |f| %>
-      <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
-      <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
+    <div class="answer_description"><span class="votes">Votes: <%= @answer_vote_count[index] %></span> A: <%= answer.description %>
+    <% if signed_in? %>
+      <%= form_for :vote, url: answer_votes_path(answer) do |f| %>
+        <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
+        <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
+      <% end %>
     <% end %>
     </div>
   <% end %>
 
+  <% if signed_in? %>
+    <%= form_for(:answer, url: "/questions/#{@question.id}/answers") do |f| %>
 
-  <%= form_for(:answer, url: "/questions/#{@question.id}/answers") do |f| %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= flash[:error] %>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= flash[:error] %>
-
-    <%= f.submit "Answer!", :class => 'btn btn-primary' %>
+      <%= f.submit "Answer!", :class => 'btn btn-primary' %>
+    <% end %>
   <% end %>
 </div>
