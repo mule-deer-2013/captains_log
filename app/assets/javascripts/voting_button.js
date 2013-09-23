@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(this).siblings('.votes').text("Votes: " + data.vote_count);
 	}).on('ajax:error', function(e, xhr, status, error) {
 		e.preventDefault();
+		// this is doing nothing.
 		console.log(status);
 		console.log("failure");
 	});

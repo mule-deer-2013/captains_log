@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # REVIEW: my strong opinion, these variables are not needed. use @user.questions in the view.
     @questions = @user.questions
     @answers = @user.answers
   end

@@ -1,10 +1,13 @@
+this view is crazy looking, refactor it into partials.
 <div class = "center hero-unit">
   <h3><%= @question.title %></h3>
+  this already been handled in the layout.
   <% if flash[:notices] %>
   <p><%= flash[:notices] %></p>
   <% end %>
 
   <div id="question_description"><span class="votes">Votes: <%= @question_vote_total %></span> Q: <%= @question.description %>
+    use helper methods. upvote_form(@question)
     <% if signed_in? %>
       <%= form_for :vote, url: question_votes_path(@question), remote: true, html: {class: "vote_create"} do |f| %>
         <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
@@ -14,6 +17,7 @@
   </div>
 
   <% @answers.each_with_index do |answer, index| %>
+  use helper methods. downvote_form(@question)
     <div class="answer_description"><span class="votes">Votes: <%= @answer_vote_count[index] %></span> A: <%= answer.description %>
     <% if signed_in? %>
       <%= form_for :vote, url: answer_votes_path(answer), remote: true, html: {class: "vote_create"} do |f| %>

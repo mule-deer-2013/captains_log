@@ -39,6 +39,7 @@ describe QuestionsController do
     end
   end
 
+  # REVIEW: you know what I'm about to write.
   describe "create" do
     # before(:each) do
     #   post login_path, :login => user.login, :password => 'password'

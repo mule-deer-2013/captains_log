@@ -13,8 +13,11 @@ class VotesController < ApplicationController
     @votable = resource.singularize.classify.constantize.find(id)
   end
 
+  # this needs some serious refactoring, too much logic
   def create_vote
+    # user authenticate_user
     if signed_in?
+      current_user.voted?(votable)
       vote = Vote.where(user_id: current_user.id, votable_type: @votable.class, votable_id: @votable.id)
       button = params[:vote]
       if vote.empty?
