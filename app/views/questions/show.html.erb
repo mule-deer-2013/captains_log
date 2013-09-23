@@ -6,7 +6,7 @@
 
   <div id="question_description"><span class="votes">Votes: <%= @question_vote_total %></span> Q: <%= @question.description %>
     <% if signed_in? %>
-      <%= form_for :vote, url: question_votes_path(@question) do |f| %>
+      <%= form_for :vote, url: question_votes_path(@question), remote: true, html: {class: "vote_create"} do |f| %>
         <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
         <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
       <% end %>
@@ -16,7 +16,7 @@
   <% @answers.each_with_index do |answer, index| %>
     <div class="answer_description"><span class="votes">Votes: <%= @answer_vote_count[index] %></span> A: <%= answer.description %>
     <% if signed_in? %>
-      <%= form_for :vote, url: answer_votes_path(answer) do |f| %>
+      <%= form_for :vote, url: answer_votes_path(answer), remote: true, html: {class: "vote_create"} do |f| %>
         <%= f.button 'Upvote', name: "vote[up]", value: "true", :class => 'btn btn-success' %>
         <%= f.button 'Downvote', name: "vote[down]", value: "true", :class => 'btn btn-danger' %>
       <% end %>

@@ -24,10 +24,11 @@ class VotesController < ApplicationController
       end
       vote.change_vote(button)
       unless vote.save
-        flash[:notices] = vote.errors.full_messages.join(', ')
+        flash_error = vote.errors.full_messages.join(', ')
+        render json: { flash_error: flash_error }, status: :unprocessable_entity
       end
     end
-    redirect_to question_path(votable)
+    render json: { vote_count: vote_tally(@votable) }
   end
 
   def votable
