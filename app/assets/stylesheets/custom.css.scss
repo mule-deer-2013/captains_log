@@ -16,6 +16,7 @@ body {
   background-repeat: repeat-x;
 }
 
+
 section {
   overflow: auto;
 }
@@ -36,6 +37,9 @@ textarea {
   margin: 0 auto;
 }
 
+.navbar-form.pull-right{
+  margin-right: -60px;
+}
 
 .main-content{
   height: 600px;
