@@ -4,8 +4,8 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, polymorphic: true
   belongs_to :user
 
-  validates :user_id, presence: true
-  validates :votable_id, :votable_type, presence: true
+  validates :user_id, :votable_id, :votable_type, presence: true
+  validates_uniqueness_of :user_id, scope: [:votable_type, :votable_id]
 
   def change_vote(click_value)
     key = click_value.key("true")
