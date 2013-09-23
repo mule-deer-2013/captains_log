@@ -2,7 +2,8 @@
   <div class="navbar-inner">
     <div class="container nav", id="nav">
 
-      <%= link_to "Captains Log", root_path, id: "logo", :class => 'navbar-brand' %>
+      <%= link_to image_tag('logov1.png'), root_path, :class => 'navbar-brand' %>
+
       <% provide(:title, "Sign in") %>    
      
       <%= form_tag sessions_path, :class => 'navbar-form pull-right' do %>
@@ -17,6 +18,7 @@
       <% end %>
       <% if !signed_in? %>
         <a class="btn btn-primary" href="#" id="modal_link"> Sign Up </a>
+
       <%end%>
     </div>
   </div>
