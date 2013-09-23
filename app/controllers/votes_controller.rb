@@ -28,7 +28,9 @@ class VotesController < ApplicationController
         render json: { flash_error: flash_error }, status: :unprocessable_entity
       end
     end
-    render json: { vote_count: vote_tally(@votable) }
+    p "Vote count is:"
+    p vote_tally(@votable)
+    render json: { vote_count: vote_tally(@votable) }.to_json
   end
 
   def votable
